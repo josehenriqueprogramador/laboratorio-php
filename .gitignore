@@ -1,0 +1,22 @@
+# Pastas de dados e uploads (não versionar)
+data/
+logs/
+db_data/
+
+# Arquivos de log
+*.log
+
+# SQLite
+*.sqlite
+
+# Node / Composer / vendor
+node_modules/
+vendor/
+
+# Arquivos temporários do sistema
+*.swp
+*.DS_Store
+Thumbs.db
+
+# Arquivos de cache PHP
+*.cache
