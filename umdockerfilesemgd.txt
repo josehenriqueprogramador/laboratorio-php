@@ -1,0 +1,24 @@
+FROM php:8.2-apache
+
+ENV TZ=America/Sao_Paulo
+
+RUN apt-get update && apt-get install -y \
+    locales \
+    git \
+    unzip \
+    libicu-dev \
+    libzip-dev \
+    libonig-dev \
+    libsqlite3-dev \
+    pkg-config \
+    build-essential \
+    && echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen \
+    && locale-gen pt_BR.UTF-8 \
+    && docker-php-ext-install intl mbstring pdo pdo_mysql pdo_sqlite zip \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY src/ /var/www/html/
+
+RUN a2enmod rewrite
