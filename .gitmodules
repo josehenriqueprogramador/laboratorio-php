@@ -1,0 +1,3 @@
+[submodule "src/web-php"]
+	path = src/web-php
+	url = https://github.com/php/web-php.git
